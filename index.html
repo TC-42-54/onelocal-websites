@@ -58,8 +58,20 @@
     border-color: var(--accent);
     transform: translateY(-2px);
   }
+  .app-card-head {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  .app-card-head img {
+    width: 48px;
+    height: 48px;
+    border-radius: 11px;
+    box-shadow: 0 4px 12px rgba(42, 92, 50, 0.2);
+  }
   .app-card h2 {
-    margin: 0 0 0.4rem;
+    margin: 0;
     font-size: 1.3rem;
     color: var(--accent-dark);
   }
@@ -101,7 +113,10 @@
   <main>
     <div class="apps">
       <a class="app-card" href="/garden-tracker/">
-        <h2>Garden Tracker</h2>
+        <div class="app-card-head">
+          <img src="/garden-tracker/images/logo.png" alt="Garden Tracker app icon">
+          <h2>Garden Tracker</h2>
+        </div>
         <p>Plan your beds, track your plantings, and get a daily checklist tailored to your local climate — with on-device plant identification, right from a photo.</p>
       </a>
       <div class="app-card soon">
