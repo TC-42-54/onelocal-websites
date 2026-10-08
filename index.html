@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OneLocal</title>
+<style>
+  :root {
+    --accent: #3a7d44;
+    --accent-dark: #2a5c32;
+    --text: #1c1c1c;
+    --muted: #5a5a5a;
+    --bg: #fafaf7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.5;
+  }
+  header {
+    padding: 6rem 1.5rem 4rem;
+    text-align: center;
+  }
+  header h1 {
+    font-size: 2.75rem;
+    margin: 0 0 0.75rem;
+    letter-spacing: -0.02em;
+  }
+  header p {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 32rem;
+    margin: 0 auto;
+  }
+  main {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 6rem;
+  }
+  .apps {
+    display: grid;
+    gap: 1.25rem;
+  }
+  .app-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: #fff;
+    border: 1px solid #e8e6e0;
+    border-radius: 14px;
+    padding: 1.75rem;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .app-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .app-card h2 {
+    margin: 0 0 0.4rem;
+    font-size: 1.3rem;
+    color: var(--accent-dark);
+  }
+  .app-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.98rem;
+  }
+  .app-card.soon {
+    opacity: 0.55;
+    pointer-events: none;
+  }
+  .app-card.soon h2::after {
+    content: "coming soon";
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    background: #f0efe9;
+    border-radius: 999px;
+    padding: 0.2rem 0.6rem;
+    margin-left: 0.6rem;
+    vertical-align: middle;
+  }
+  footer {
+    text-align: center;
+    padding: 2rem 1.5rem 3rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>OneLocal</h1>
+    <p>Small, focused apps built to make everyday life a little easier.</p>
+  </header>
+  <main>
+    <div class="apps">
+      <a class="app-card" href="/garden-tracker/">
+        <h2>Garden Tracker</h2>
+        <p>Plan your beds, track your plantings, and get a daily checklist tailored to your local climate — with on-device plant identification, right from a photo.</p>
+      </a>
+      <div class="app-card soon">
+        <h2>More apps</h2>
+        <p>Additional OneLocal apps will show up here as they ship.</p>
+      </div>
+    </div>
+  </main>
+  <footer>
+    &copy; 2026 OneLocal
+  </footer>
+</body>
+</html>
