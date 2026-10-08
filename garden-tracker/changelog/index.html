@@ -9,6 +9,9 @@
 <meta name="robots" content="index, follow">
 <link rel="icon" type="image/png" href="../images/logo.png">
 <link rel="apple-touch-icon" href="../images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
 <style>
   nav {
@@ -16,14 +19,15 @@
     margin: 0 auto;
   }
   header {
-    padding: 1rem 1.5rem 3rem;
+    padding: 1.5rem 1.5rem 3rem;
     max-width: 42rem;
     margin: 0 auto;
   }
   header h1 {
-    font-size: 2.25rem;
+    font-size: 2.1rem;
+    font-weight: 800;
     margin: 0 0 0.6rem;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
   }
   header p {
     font-size: 1.05rem;
@@ -37,8 +41,8 @@
   }
   .entry {
     position: relative;
-    padding: 0 0 2.5rem 1.6rem;
-    border-left: 2px solid #e8e6e0;
+    padding: 0 0 2.5rem 1.7rem;
+    border-left: 2px solid var(--border);
   }
   .entry:last-child {
     border-left: 2px solid transparent;
@@ -53,26 +57,29 @@
     height: 12px;
     border-radius: 50%;
     background: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-light);
   }
   .entry .date {
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-size: 0.78rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
     color: var(--accent-dark);
   }
   .entry h2 {
-    margin: 0.3rem 0 0.4rem;
-    font-size: 1.2rem;
+    margin: 0.35rem 0 0.45rem;
+    font-size: 1.22rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
   }
   .entry .version {
     display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 600;
+    font-size: 0.72rem;
+    font-weight: 700;
     color: var(--muted);
-    background: #f0efe9;
+    background: var(--accent-light);
     border-radius: 999px;
-    padding: 0.15rem 0.6rem;
+    padding: 0.18rem 0.65rem;
     margin-left: 0.5rem;
     vertical-align: middle;
   }
