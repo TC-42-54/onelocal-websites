@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Changelog — Garden Tracker</title>
+<meta name="description" content="How Garden Tracker got built, version by version — including the real work behind its on-device plant identification model.">
+<link rel="canonical" href="https://onelocal.dev/garden-tracker/changelog/">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/png" href="../images/logo.png">
+<link rel="apple-touch-icon" href="../images/logo.png">
+<style>
+  :root {
+    --accent: #3a7d44;
+    --accent-dark: #2a5c32;
+    --text: #1c1c1c;
+    --muted: #5a5a5a;
+    --bg: #fafaf7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.5;
+  }
+  nav {
+    padding: 1.5rem;
+    max-width: 42rem;
+    margin: 0 auto;
+    display: flex;
+    gap: 1.25rem;
+  }
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+  nav a:hover { color: var(--accent-dark); }
+  header {
+    padding: 1rem 1.5rem 3rem;
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+  header h1 {
+    font-size: 2.25rem;
+    margin: 0 0 0.6rem;
+    letter-spacing: -0.02em;
+  }
+  header p {
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin: 0;
+  }
+  main {
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 6rem;
+  }
+  .entry {
+    position: relative;
+    padding: 0 0 2.5rem 1.6rem;
+    border-left: 2px solid #e8e6e0;
+  }
+  .entry:last-child {
+    border-left: 2px solid transparent;
+    padding-bottom: 0;
+  }
+  .entry::before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 0.3rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .entry .date {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--accent-dark);
+  }
+  .entry h2 {
+    margin: 0.3rem 0 0.4rem;
+    font-size: 1.2rem;
+  }
+  .entry .version {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--muted);
+    background: #f0efe9;
+    border-radius: 999px;
+    padding: 0.15rem 0.6rem;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+  .entry ul {
+    margin: 0.5rem 0 0;
+    padding-left: 1.1rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  .entry li {
+    margin-bottom: 0.35rem;
+  }
+  footer {
+    text-align: center;
+    padding: 2rem 1.5rem 3rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <a href="/">&larr; OneLocal</a>
+    <a href="/garden-tracker/">Garden Tracker</a>
+  </nav>
+  <header>
+    <h1>Changelog</h1>
+    <p>What actually happened, version by version — including the parts that didn't work the first time.</p>
+  </header>
+  <main>
+
+    <div class="entry">
+      <div class="date">October 8, 2026</div>
+      <h2>Fixing a real labeling bug<span class="version">build 9</span></h2>
+      <ul>
+        <li>Found and fixed several crop pairs (onion/shallot, celeriac/celery, cherry-tomato/tomato, chili/pepper, broccoli/cauliflower) that had the exact same source photo duplicated into both crops' training folders — literally teaching the model that one photo was two different things.</li>
+        <li>Fetched several hundred more photos for the crops that stayed weak across multiple retrains.</li>
+        <li>Held-out accuracy (tested on photos the model never trained on) went from 68.4% to 73.5%.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="date">October 7, 2026</div>
+      <h2>Rebuilding the classifier from scratch</h2>
+      <ul>
+        <li>Switched the plant classifier from Create ML to a fully fine-tuned PyTorch model — Create ML's transfer learning only trains a lightweight head on a frozen backbone, and it failed outright past ~8,500-16,000 training images on this machine.</li>
+        <li>Moved to a 4-model ensemble that averages each model's confidence per crop, with a better feature extractor.</li>
+        <li>Hardened the data filtering to close a contamination path, and dropped ambiguous photo sources for crops that share the same scientific species name (so the model couldn't learn a shallot photo as "onion" or vice versa from taxonomy-only sources).</li>
+        <li>Expanded training data across every crop and fixed a scaling bug in the training pipeline.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="date">October 6, 2026</div>
+      <h2>On-device plant identification</h2>
+      <ul>
+        <li>Added a Core ML plant classifier covering 21 new fruit and nut crops.</li>
+        <li>Built a photo fetcher against iNaturalist to expand the training set beyond the original catalog.</li>
+        <li>Added a true held-out evaluation harness — a fixed set of photos carved out before training and never touched again, so accuracy numbers reflect photos the model has genuinely never seen, not an internal validation split that gets reshuffled on every run.</li>
+        <li>Build 2 uploaded to TestFlight.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="date">September 21, 2026</div>
+      <h2>Garden Tracker begins</h2>
+      <ul>
+        <li>First build: an iPhone garden planner for iOS 27 — beds, plantings, and a daily checklist.</li>
+        <li>App icon, app name, and French localization added.</li>
+      </ul>
+    </div>
+
+  </main>
+  <footer>
+    &copy; 2026 OneLocal
+  </footer>
+</body>
+</html>
