@@ -60,13 +60,24 @@
     padding: 1.5rem;
     max-width: 48rem;
     margin: 0 auto;
+    display: flex;
+    gap: 0.75rem;
   }
   nav a {
-    color: var(--muted);
+    color: var(--accent-dark);
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: #fff;
+    border: 1px solid #e8e6e0;
+    border-radius: 999px;
+    padding: 0.45rem 1rem;
+    transition: background 0.15s ease, border-color 0.15s ease;
   }
-  nav a:hover { color: var(--accent-dark); }
+  nav a:hover {
+    background: #f0efe9;
+    border-color: var(--accent);
+  }
   header {
     padding: 3rem 1.5rem 3rem;
     text-align: center;
@@ -157,7 +168,10 @@
 <link rel="icon" type="image/png" href="images/logo.png">
 </head>
 <body>
-  <nav><a href="/">&larr; OneLocal</a> &nbsp; <a href="/garden-tracker/changelog/">Changelog</a></nav>
+  <nav>
+    <a href="/">&larr; OneLocal</a>
+    <a href="/garden-tracker/changelog/">Changelog</a>
+  </nav>
   <header>
     <img class="logo" src="images/logo.png" alt="Garden Tracker app icon">
     <h1>Garden Tracker</h1>
