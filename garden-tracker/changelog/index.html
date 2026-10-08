@@ -99,14 +99,10 @@
     margin-left: 0.5rem;
     vertical-align: middle;
   }
-  .entry ul {
+  .entry p {
     margin: 0.5rem 0 0;
-    padding-left: 1.1rem;
     color: var(--muted);
     font-size: 0.95rem;
-  }
-  .entry li {
-    margin-bottom: 0.35rem;
   }
   footer {
     text-align: center;
@@ -130,42 +126,25 @@
     <div class="entry">
       <div class="date">October 8, 2026</div>
       <h2>Fixing a real labeling bug<span class="version">build 9</span></h2>
-      <ul>
-        <li>Found and fixed several crop pairs (onion/shallot, celeriac/celery, cherry-tomato/tomato, chili/pepper, broccoli/cauliflower) that had the exact same source photo duplicated into both crops' training folders — literally teaching the model that one photo was two different things.</li>
-        <li>Fetched several hundred more photos for the crops that stayed weak across multiple retrains.</li>
-        <li>Held-out accuracy (tested on photos the model never trained on) went from 68.4% to 73.5%.</li>
-      </ul>
+      <p>Found that several crop pairs — onion/shallot, celeriac/celery, cherry-tomato/tomato, chili/pepper, broccoli/cauliflower — had the exact same source photo duplicated into both crops' training folders, literally teaching the model that one photo was two different things. Fixed the duplicates, fetched several hundred more photos for the crops that stayed weak across multiple retrains, and pushed held-out accuracy (tested on photos the model never trained on) from 68.4% to 73.5%.</p>
     </div>
 
     <div class="entry">
       <div class="date">October 7, 2026</div>
       <h2>Rebuilding the classifier from scratch</h2>
-      <ul>
-        <li>Switched the plant classifier from Create ML to a fully fine-tuned PyTorch model — Create ML's transfer learning only trains a lightweight head on a frozen backbone, and it failed outright past ~8,500-16,000 training images on this machine.</li>
-        <li>Moved to a 4-model ensemble that averages each model's confidence per crop, with a better feature extractor.</li>
-        <li>Hardened the data filtering to close a contamination path, and dropped ambiguous photo sources for crops that share the same scientific species name (so the model couldn't learn a shallot photo as "onion" or vice versa from taxonomy-only sources).</li>
-        <li>Expanded training data across every crop and fixed a scaling bug in the training pipeline.</li>
-      </ul>
+      <p>Switched the plant classifier from Create ML to a fully fine-tuned PyTorch model, since Create ML's frozen-backbone transfer learning failed outright past ~8,500-16,000 training images on this machine. Moved to a 4-model ensemble that averages each model's confidence per crop, hardened the data filtering to close a contamination path, and dropped ambiguous photo sources for crops that share the same scientific species name.</p>
     </div>
 
     <div class="entry">
       <div class="date">October 6, 2026</div>
       <h2>On-device plant identification</h2>
-      <ul>
-        <li>Added a Core ML plant classifier covering 21 new fruit and nut crops.</li>
-        <li>Built a photo fetcher against iNaturalist to expand the training set beyond the original catalog.</li>
-        <li>Added a true held-out evaluation harness — a fixed set of photos carved out before training and never touched again, so accuracy numbers reflect photos the model has genuinely never seen, not an internal validation split that gets reshuffled on every run.</li>
-        <li>Build 2 uploaded to TestFlight.</li>
-      </ul>
+      <p>Added a Core ML plant classifier covering 21 fruit and nut crops, built a photo fetcher against iNaturalist to expand the training set, and added a true held-out evaluation harness — a fixed set of photos carved out before training and never touched again, so accuracy numbers reflect photos the model has genuinely never seen.</p>
     </div>
 
     <div class="entry">
       <div class="date">September 21, 2026</div>
       <h2>Garden Tracker begins</h2>
-      <ul>
-        <li>First build: an iPhone garden planner for iOS 27 — beds, plantings, and a daily checklist.</li>
-        <li>App icon, app name, and French localization added.</li>
-      </ul>
+      <p>First build: an iPhone garden planner for iOS 27 — beds, plantings, and a daily checklist, with the app icon, name, and French localization in place.</p>
     </div>
 
   </main>
