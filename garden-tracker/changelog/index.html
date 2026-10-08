@@ -96,6 +96,18 @@
 
     <div class="entry">
       <div class="date">October 8, 2026</div>
+      <h2>Only flag an alternate guess when genuinely unsure<span class="version">build 11</span></h2>
+      <p>The plant identifier's "could also be" second guess used to show up next to every result. Now it only appears when the top guess is below 50% confidence, so a confident match isn't cluttered with a low-odds alternative.</p>
+    </div>
+
+    <div class="entry">
+      <div class="date">October 8, 2026</div>
+      <h2>Cleaning up the training data, not just adding more<span class="version">build 10</span></h2>
+      <p>Ran an outlier detector across the weakest crops' training photos and found real contamination: scanned herbarium specimens, a 19th-century engraving, a museum placard, and off-subject photos (a crop field with no fruit visible, a statistics chart) mixed into chili, oregano, and shallot's training sets. Removed them and retrained the full 4-model ensemble. Oregano jumped from 40% to 47% held-out accuracy — confirmed the contamination really was hurting it. Chili and shallot stayed exactly flat, which was itself useful: it confirmed those two need a different kind of fix (chili looks genuinely similar to pepper in photos; most of shallot's real photos are flower heads, not bulbs) rather than more data cleanup.</p>
+    </div>
+
+    <div class="entry">
+      <div class="date">October 8, 2026</div>
       <h2>Fixing a real labeling bug<span class="version">build 9</span></h2>
       <p>Found that several crop pairs — onion/shallot, celeriac/celery, cherry-tomato/tomato, chili/pepper, broccoli/cauliflower — had the exact same source photo duplicated into both crops' training folders, literally teaching the model that one photo was two different things. Fixed the duplicates, fetched several hundred more photos for the crops that stayed weak across multiple retrains, and pushed held-out accuracy (tested on photos the model never trained on) from 68.4% to 73.5%.</p>
     </div>
