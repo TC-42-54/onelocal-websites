@@ -13,16 +13,16 @@
 <meta property="og:title" content="OneLocal — Small, focused apps for everyday life">
 <meta property="og:description" content="No accounts, no servers, no subscriptions — just pay once. Starting with Garden Tracker, a local garden planner with on-device plant identification.">
 <meta property="og:url" content="https://onelocal.dev/">
-<meta property="og:image" content="https://onelocal.dev/garden-tracker/images/og-image.png">
+<meta property="og:image" content="https://onelocal.dev/assets/onelocal-mark-512.png">
 <meta property="og:locale" content="en_US">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="OneLocal — Small, focused apps for everyday life">
 <meta name="twitter:description" content="No accounts, no servers, no subscriptions — just pay once. Starting with Garden Tracker, a local garden planner with on-device plant identification.">
-<meta name="twitter:image" content="https://onelocal.dev/garden-tracker/images/og-image.png">
+<meta name="twitter:image" content="https://onelocal.dev/assets/onelocal-mark-512.png">
 
-<link rel="icon" type="image/png" href="/garden-tracker/images/logo.png">
-<link rel="apple-touch-icon" href="/garden-tracker/images/logo.png">
+<link rel="icon" type="image/svg+xml" href="/assets/onelocal-mark.svg">
+<link rel="apple-touch-icon" href="/assets/onelocal-mark-512.png">
 
 <script type="application/ld+json">
 {
@@ -30,7 +30,7 @@
   "@type": "Organization",
   "name": "OneLocal",
   "url": "https://onelocal.dev/",
-  "logo": "https://onelocal.dev/garden-tracker/images/logo.png",
+  "logo": "https://onelocal.dev/assets/onelocal-mark-512.png",
   "description": "OneLocal builds small, focused iPhone apps with no accounts, no servers, and no subscriptions.",
   "email": "support.gardentracker@onelocal.dev"
 }
@@ -58,12 +58,18 @@
     pointer-events: none;
   }
   .hero > * { position: relative; }
-  .hero h1 {
-    font-size: 3.2rem;
-    font-weight: 800;
-    margin: 0 0 0.85rem;
-    letter-spacing: -0.03em;
+  .hero .logo-lockup {
+    height: 2.6rem;
+    width: auto;
+    margin: 0 0 1.1rem;
     animation: rise 0.6s cubic-bezier(.16,1,.3,1) backwards;
+  }
+  @media (prefers-color-scheme: dark) {
+    .hero .logo-lockup {
+      background: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 14px;
+    }
   }
   .hero p {
     font-size: 1.2rem;
@@ -183,7 +189,7 @@
 </head>
 <body>
   <header class="hero">
-    <h1>OneLocal</h1>
+    <h1><img class="logo-lockup" src="/assets/onelocal-logo-horizontal.svg" alt="OneLocal"></h1>
     <p>Small, focused apps built to make everyday life a little easier.</p>
   </header>
   <main>
