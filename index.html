@@ -97,6 +97,30 @@
     margin-left: 0.6rem;
     vertical-align: middle;
   }
+  .promise {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 3rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid #e8e6e0;
+  }
+  @media (min-width: 640px) {
+    .promise { grid-template-columns: repeat(4, 1fr); }
+  }
+  .promise div {
+    text-align: center;
+  }
+  .promise h3 {
+    margin: 0 0 0.3rem;
+    font-size: 0.95rem;
+    color: var(--accent-dark);
+  }
+  .promise p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
   footer {
     text-align: center;
     padding: 2rem 1.5rem 3rem;
@@ -111,6 +135,24 @@
     <p>Small, focused apps built to make everyday life a little easier.</p>
   </header>
   <main>
+    <div class="promise">
+      <div>
+        <h3>Your data stays put</h3>
+        <p>Everything lives on your phone — we don't run servers that collect it.</p>
+      </div>
+      <div>
+        <h3>No account</h3>
+        <p>Open the app and start using it. No sign-up, no login.</p>
+      </div>
+      <div>
+        <h3>No subscription</h3>
+        <p>Pay once, keep the app — no recurring fees, ever.</p>
+      </div>
+      <div>
+        <h3>No tracking</h3>
+        <p>Nothing about how you use the app is sent anywhere.</p>
+      </div>
+    </div>
     <div class="apps">
       <a class="app-card" href="/garden-tracker/">
         <div class="app-card-head">
