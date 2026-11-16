@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
 <title>Privacy Policy — Garden Tracker</title>
-<meta name="description" content="Garden Tracker's privacy policy: what data the app uses, why, and why none of it is seen by OneLocal.">
+<meta name="description" content="Garden Tracker's GDPR privacy policy: what data the app processes, the legal basis for each, and your rights.">
 <link rel="canonical" href="https://onelocal.dev/garden-tracker/privacy/">
 <meta name="robots" content="index, follow">
 <link rel="icon" type="image/png" href="../images/logo.png">
@@ -20,11 +20,18 @@
   header h1 { font-size: 2.1rem; font-weight: 800; margin: 0 0 0.6rem; letter-spacing: -0.03em; }
   header p { font-size: 1.05rem; color: var(--muted); margin: 0; }
   main { max-width: 42rem; margin: 0 auto; padding: 0 1.5rem 6rem; }
-  main h2 { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.01em; margin: 2.2rem 0 0.7rem; }
-  main p, main li { font-size: 0.97rem; line-height: 1.6; color: var(--text); }
+  main h2 { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.01em; margin: 2.3rem 0 0.7rem; }
+  main h2 .num { color: var(--accent-dark); margin-right: 0.4rem; }
+  main p, main li, main td, main th { font-size: 0.95rem; line-height: 1.6; color: var(--text); }
   main ul { padding-left: 1.3rem; }
   main li { margin-bottom: 0.5rem; }
   main a { color: var(--accent-dark); font-weight: 600; }
+  .intro { font-size: 1rem; color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; font-size: 0.88rem; }
+  caption { text-align: left; font-size: 0.8rem; color: var(--muted); margin-bottom: 0.4rem; }
+  th, td { text-align: left; padding: 0.55rem 0.6rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--muted); font-weight: 700; }
+  .table-wrap { overflow-x: auto; }
   .updated { font-size: 0.82rem; color: var(--muted); margin-top: 2.5rem; }
 </style>
 </head>
@@ -35,36 +42,46 @@
   </nav>
   <header>
     <h1>Privacy Policy</h1>
-    <p>For the Garden Tracker iPhone app, published by OneLocal.</p>
+    <p>For the Garden Tracker iPhone app, published by OneLocal. This policy is written to meet GDPR's Article 13/14 disclosure requirements.</p>
   </header>
   <main>
-    <p>Garden Tracker has no account and no server of its own. Your garden is yours — stored on your device and, if you turn iCloud sync on, kept private between your own devices through your own iCloud account. This page explains exactly what the app touches and why.</p>
+    <p class="intro">Garden Tracker has no account and no server of its own. Your garden is stored on your device and, if you turn sync on, kept private between your own devices through your own iCloud account.</p>
 
-    <h2>What the app uses, and why</h2>
-    <ul>
-      <li><strong>Your beds, plantings and journal.</strong> Stored locally in the app's own on-device database. If you enable sync in Settings, the same data is kept across your devices privately through your own iCloud account — OneLocal has no access to it either way.</li>
-      <li><strong>Camera.</strong> Takes photos of your plants and seed packets. Photos stay on your device.</li>
-      <li><strong>Location (when in use).</strong> Used once to find your département and altitude, so planting dates and reminders fit your local climate. It is also sent, by Apple's own WeatherKit framework, to Apple to retrieve your local weather forecast — see "Third parties" below. OneLocal never receives your location directly.</li>
-      <li><strong>On-device intelligence.</strong> Identifying a plant from a photo and reading a seed packet normally run entirely on your iPhone. For some requests, iOS may route part of the processing through Apple's Private Cloud Compute, which Apple designed to be privacy-preserving and independently verifiable — see Apple's own <a href="https://www.apple.com/legal/privacy/">Privacy Policy</a> for how that works. OneLocal has no access to this either way.</li>
-      <li><strong>Widget.</strong> Shows your next tasks using the same on-device data as the app. It collects nothing separately.</li>
-    </ul>
+    <h2><span class="num">1.</span>Who is responsible for your data</h2>
+    <p>The data controller is OneLocal (Thomas Chézières), an individual developer based in France. For anything in this policy: <a href="mailto:support.gardentracker@onelocal.dev">support.gardentracker@onelocal.dev</a>. No separate Data Protection Officer is appointed — OneLocal does not carry out large-scale or systematic processing of the kind that requires one, and in practice processes none of your personal data on any server it operates (see below).</p>
 
-    <h2>What OneLocal can see</h2>
-    <p>Nothing. Garden Tracker has no backend, no analytics, and no crash-reporting or advertising SDKs. There is no way for us to see your garden, your photos, or how you use the app.</p>
+    <h2><span class="num">2.</span>Data Garden Tracker processes, and why</h2>
+    <div class="table-wrap">
+    <table>
+      <caption>Processing activities carried out by the Garden Tracker app itself</caption>
+      <tr><th>Data</th><th>Purpose</th><th>Legal basis (Art. 6 GDPR)</th><th>Who sees it</th><th>Retention</th></tr>
+      <tr><td>Beds, plantings, journal entries you add</td><td>Core function of the app</td><td>Performance of the service you open the app to use (Art. 6(1)(b), by analogy — no account/contract exists, but this is the equivalent basis for app state)</td><td>Only you; synced privately across your own devices via your own iCloud account if you enable it, under Apple's own privacy policy — not seen by OneLocal either way</td><td>Until you delete it yourself</td></tr>
+      <tr><td>Camera images</td><td>Photos of plants and seed packets</td><td>Consent (granted through the iOS camera permission prompt)</td><td>Only you, on your device</td><td>Until you delete it yourself</td></tr>
+      <tr><td>Precise location (when in use)</td><td>Finding your département and altitude so planting dates fit your local climate, and fetching a local weather forecast</td><td>Consent (granted through the iOS location permission prompt)</td><td>Processed on-device for climate matching; also sent by Apple's WeatherKit framework to Apple to retrieve the forecast — not received by OneLocal directly</td><td>Not stored beyond the current session; re-requested as needed</td></tr>
+      <tr><td>Photo / seed packet contents analysed on-device (and occasionally via Apple's Private Cloud Compute)</td><td>Identifying a plant or reading sowing details</td><td>Consent (same camera permission as above)</td><td>Processed on-device by default; Apple's Private Cloud Compute may handle part of some requests — not seen by OneLocal either way</td><td>Not retained once a result is returned</td></tr>
+    </table>
+    </div>
+    <p>None of this is ever transmitted to OneLocal. There is no backend server, no analytics SDK, and no crash-reporting or advertising SDK in Garden Tracker. WeatherKit and Private Cloud Compute are Apple's own first-party services, governed by Apple's own <a href="https://www.apple.com/legal/privacy/">Privacy Policy</a>, not a third party OneLocal integrates separately.</p>
 
-    <h2>Third parties</h2>
-    <p>Garden Tracker does not use any third-party trackers or ad networks. Weather forecasts are provided by Apple's WeatherKit, and on-device intelligence may use Apple's Private Cloud Compute — both are Apple's own first-party services, governed by Apple's own privacy policy, not a third party OneLocal integrates separately.</p>
+    <h2><span class="num">3.</span>Data Garden Tracker does not collect</h2>
+    <p>No account, no email address, no advertising identifier, no contacts, no precise usage analytics. Garden Tracker does not use cookies or any similar tracking technology, and does not perform any automated decision-making or profiling that produces legal or similarly significant effects on you (Art. 22) — plant identification only ever suggests a name for you to confirm.</p>
 
-    <h2>Children's privacy</h2>
-    <p>Garden Tracker is not directed at children and collects no data from anyone, regardless of age.</p>
+    <h2><span class="num">4.</span>International data transfers</h2>
+    <p>OneLocal itself does not transfer any of your data internationally, since it operates no server. Apple's iCloud sync, WeatherKit, and Private Cloud Compute may process data on Apple's infrastructure outside your home country; that is governed by Apple's own privacy policy and data-transfer safeguards, not OneLocal's.</p>
 
-    <h2>Your choices</h2>
-    <p>Everything lives in the app's own storage or your own iCloud account, so deleting a planting, turning off sync, or deleting the app removes that data. There is no separate OneLocal copy to request or delete. Location access can be turned off in iOS Settings at any time; the app still works, just without climate-matched dates.</p>
+    <h2><span class="num">5.</span>Your rights</h2>
+    <p>Under GDPR you have the right to access, rectify, erase, restrict or object to processing of your personal data, and to data portability. In Garden Tracker's case, these are all already fully in your own hands: delete a planting, turn off location access, or delete the app itself, and that data is gone — there is no separate OneLocal-held copy to action a request against. You can still email <a href="mailto:support.gardentracker@onelocal.dev">support.gardentracker@onelocal.dev</a> with any privacy question, and you have the right to lodge a complaint with your national supervisory authority — in France, the <a href="https://www.cnil.fr/">CNIL</a>.</p>
 
-    <h2>Changes to this policy</h2>
-    <p>If what the app does ever changes, this page will be updated to match before that change ships.</p>
+    <h2><span class="num">6.</span>Children's privacy</h2>
+    <p>Garden Tracker is not directed at children and knowingly collects no data from anyone, regardless of age.</p>
 
-    <h2>Contact</h2>
+    <h2><span class="num">7.</span>Data breaches</h2>
+    <p>Since Garden Tracker holds no personal data outside your own device and your own iCloud account, there is no OneLocal-held dataset that could be breached. If that ever changes, this section will be updated to describe how you'd be notified.</p>
+
+    <h2><span class="num">8.</span>Changes to this policy</h2>
+    <p>If what the app does ever changes, this page will be updated to match before that change ships, with the date below revised accordingly.</p>
+
+    <h2><span class="num">9.</span>Contact</h2>
     <p>Questions about this policy: <a href="mailto:support.gardentracker@onelocal.dev">support.gardentracker@onelocal.dev</a></p>
 
     <p class="updated">Last updated November 16, 2026.</p>

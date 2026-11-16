@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
 <title>Privacy Policy — Packed</title>
-<meta name="description" content="Packed's privacy policy: what data the app uses, why, and why none of it is seen by OneLocal.">
+<meta name="description" content="Packed's GDPR privacy policy: what data the app processes, the legal basis for each, and your rights.">
 <link rel="canonical" href="https://onelocal.dev/packed/privacy/">
 <meta name="robots" content="index, follow">
 <link rel="icon" type="image/png" href="/assets/onelocal-mark-512.png">
@@ -20,11 +20,18 @@
   header h1 { font-size: 2.1rem; font-weight: 800; margin: 0 0 0.6rem; letter-spacing: -0.03em; }
   header p { font-size: 1.05rem; color: var(--muted); margin: 0; }
   main { max-width: 42rem; margin: 0 auto; padding: 0 1.5rem 6rem; }
-  main h2 { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.01em; margin: 2.2rem 0 0.7rem; }
-  main p, main li { font-size: 0.97rem; line-height: 1.6; color: var(--text); }
+  main h2 { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.01em; margin: 2.3rem 0 0.7rem; }
+  main h2 .num { color: var(--accent-dark); margin-right: 0.4rem; }
+  main p, main li, main td, main th { font-size: 0.95rem; line-height: 1.6; color: var(--text); }
   main ul { padding-left: 1.3rem; }
   main li { margin-bottom: 0.5rem; }
   main a { color: var(--accent-dark); font-weight: 600; }
+  .intro { font-size: 1rem; color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; font-size: 0.88rem; }
+  caption { text-align: left; font-size: 0.8rem; color: var(--muted); margin-bottom: 0.4rem; }
+  th, td { text-align: left; padding: 0.55rem 0.6rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--muted); font-weight: 700; }
+  .table-wrap { overflow-x: auto; }
   .updated { font-size: 0.82rem; color: var(--muted); margin-top: 2.5rem; }
 </style>
 </head>
@@ -35,38 +42,46 @@
   </nav>
   <header>
     <h1>Privacy Policy</h1>
-    <p>For the Packed iPhone and Apple Watch app, published by OneLocal.</p>
+    <p>For the Packed iPhone and Apple Watch app, published by OneLocal. This policy is written to meet GDPR's Article 13/14 disclosure requirements.</p>
   </header>
   <main>
-    <p>Packed has no account and no server of its own. Your trips, bags and items are yours — stored on your devices and, if you turn iCloud sync on, kept private between your own devices through your own iCloud account. This page explains exactly what the app touches and why.</p>
+    <p class="intro">Packed has no account and no server of its own. Your trips, bags and items are stored on your devices and, if you turn sync on, kept private between your own devices through your own iCloud account.</p>
 
-    <h2>What the app uses, and why</h2>
-    <ul>
-      <li><strong>Your trips, bags and items.</strong> Stored locally in the app's own on-device database. If you enable sync in Settings, the same data is kept across your iPhone and Apple Watch privately through your own iCloud account — OneLocal has no access to it either way.</li>
-      <li><strong>Camera.</strong> Takes a photo of each item as you pack it, as proof it went in. Photos stay on your iPhone.</li>
-      <li><strong>Microphone and speech recognition.</strong> Lets you ask things like "where is my passport?" out loud. What you say is transcribed on your iPhone and matched against your own stored items — it is never sent to a server.</li>
-      <li><strong>On-device intelligence.</strong> Understanding your spoken question and finding the right item normally runs entirely on your iPhone. For some requests, iOS may route part of the processing through Apple's Private Cloud Compute, which Apple designed to be privacy-preserving and independently verifiable — see Apple's own <a href="https://www.apple.com/legal/privacy/">Privacy Policy</a> for how that works. OneLocal has no access to this either way.</li>
-      <li><strong>Apple Watch.</strong> Mirrors your current trip and checklist to your Watch over Apple's on-device WatchConnectivity framework, staying strictly between your own paired devices.</li>
-      <li><strong>Live Activity.</strong> Shown on your Lock Screen while Packed is actively listening for a spoken question. It displays no data beyond that.</li>
-      <li><strong>Photo library (optional).</strong> You can attach an existing photo instead of taking a new one, through Apple's standard picker — the app only sees the photo you choose.</li>
-    </ul>
+    <h2><span class="num">1.</span>Who is responsible for your data</h2>
+    <p>The data controller is OneLocal (Thomas Chézières), an individual developer based in France. For anything in this policy: <a href="mailto:support.packed@onelocal.dev">support.packed@onelocal.dev</a>. No separate Data Protection Officer is appointed — OneLocal does not carry out large-scale or systematic processing of the kind that requires one, and in practice processes none of your personal data on any server it operates (see below).</p>
 
-    <h2>What OneLocal can see</h2>
-    <p>Nothing. Packed has no backend, no analytics, and no crash-reporting or advertising SDKs. There is no way for us to see your trips, your recordings, or how you use the app.</p>
+    <h2><span class="num">2.</span>Data Packed processes, and why</h2>
+    <div class="table-wrap">
+    <table>
+      <caption>Processing activities carried out by the Packed app itself</caption>
+      <tr><th>Data</th><th>Purpose</th><th>Legal basis (Art. 6 GDPR)</th><th>Who sees it</th><th>Retention</th></tr>
+      <tr><td>Trips, bags, items you add</td><td>Core function of the app</td><td>Performance of the service you open the app to use (Art. 6(1)(b), by analogy — no account/contract exists, but this is the equivalent basis for app state)</td><td>Only you; synced privately across your own devices via your own iCloud account if you enable it, under Apple's own privacy policy — not seen by OneLocal either way</td><td>Until you delete it yourself</td></tr>
+      <tr><td>Camera images</td><td>A photo of each item as proof it was packed</td><td>Consent (granted through the iOS camera permission prompt)</td><td>Only you, on your iPhone</td><td>Until you delete it yourself</td></tr>
+      <tr><td>Voice recording and its transcript</td><td>Answering spoken questions like "where is my passport?"</td><td>Consent (granted through the microphone and speech-recognition permission prompts)</td><td>Only you — transcribed on-device, matched only against your own stored items</td><td>Not stored after the question is answered</td></tr>
+      <tr><td>A photo you pick from your library</td><td>Attaching it to an item instead of taking a new one</td><td>Consent (you actively choose the photo via Apple's picker)</td><td>Only you, on your iPhone</td><td>Until you delete it yourself</td></tr>
+    </table>
+    </div>
+    <p>None of this is ever transmitted to OneLocal. There is no backend server, no analytics SDK, and no crash-reporting or advertising SDK in Packed. iCloud sync and the on-device assistant (which may occasionally use Apple's Private Cloud Compute for part of a request — see Apple's own <a href="https://www.apple.com/legal/privacy/">Privacy Policy</a>) are Apple's own first-party services; OneLocal has no access to that data either way.</p>
 
-    <h2>Third parties</h2>
-    <p>Packed does not use any third-party services, trackers or ad networks. iCloud sync and on-device intelligence are Apple's own first-party frameworks, governed by Apple's own privacy policy, not a third party OneLocal integrates separately.</p>
+    <h2><span class="num">3.</span>Data Packed does not collect</h2>
+    <p>No account, no email address, no advertising identifier, no location, no contacts, no precise usage analytics. Packed does not use cookies or any similar tracking technology, and does not perform any automated decision-making or profiling that produces legal or similarly significant effects on you (Art. 22).</p>
 
-    <h2>Children's privacy</h2>
-    <p>Packed is not directed at children and collects no data from anyone, regardless of age.</p>
+    <h2><span class="num">4.</span>International data transfers</h2>
+    <p>OneLocal itself does not transfer any of your data internationally, since it operates no server. Apple's iCloud sync and Private Cloud Compute may process data on Apple's infrastructure outside your home country; that is governed by Apple's own privacy policy and data-transfer safeguards, not OneLocal's.</p>
 
-    <h2>Your choices</h2>
-    <p>Everything lives in the app's own storage or your own iCloud account, so deleting a trip, turning off sync, or deleting the app removes that data. There is no separate OneLocal copy to request or delete.</p>
+    <h2><span class="num">5.</span>Your rights</h2>
+    <p>Under GDPR you have the right to access, rectify, erase, restrict or object to processing of your personal data, and to data portability. In Packed's case, these are all already fully in your own hands: delete a trip, an item or the app itself, and that data is gone — there is no separate OneLocal-held copy to action a request against. You can still email <a href="mailto:support.packed@onelocal.dev">support.packed@onelocal.dev</a> with any privacy question, and you have the right to lodge a complaint with your national supervisory authority — in France, the <a href="https://www.cnil.fr/">CNIL</a>.</p>
 
-    <h2>Changes to this policy</h2>
-    <p>If what the app does ever changes, this page will be updated to match before that change ships.</p>
+    <h2><span class="num">6.</span>Children's privacy</h2>
+    <p>Packed is not directed at children and knowingly collects no data from anyone, regardless of age.</p>
 
-    <h2>Contact</h2>
+    <h2><span class="num">7.</span>Data breaches</h2>
+    <p>Since Packed holds no personal data outside your own device and your own iCloud account, there is no OneLocal-held dataset that could be breached. If that ever changes, this section will be updated to describe how you'd be notified.</p>
+
+    <h2><span class="num">8.</span>Changes to this policy</h2>
+    <p>If what the app does ever changes, this page will be updated to match before that change ships, with the date below revised accordingly.</p>
+
+    <h2><span class="num">9.</span>Contact</h2>
     <p>Questions about this policy: <a href="mailto:support.packed@onelocal.dev">support.packed@onelocal.dev</a></p>
 
     <p class="updated">Last updated November 16, 2026.</p>

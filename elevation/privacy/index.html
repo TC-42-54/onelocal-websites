@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
 <title>Privacy Policy — Elevation</title>
-<meta name="description" content="Elevation's privacy policy: what data the app uses, why, and why none of it ever leaves your device.">
+<meta name="description" content="Elevation's GDPR privacy policy: what data the app processes, the legal basis for each, and your rights.">
 <link rel="canonical" href="https://onelocal.dev/elevation/privacy/">
 <meta name="robots" content="index, follow">
 <link rel="icon" type="image/png" href="/assets/onelocal-mark-512.png">
@@ -20,11 +20,18 @@
   header h1 { font-size: 2.1rem; font-weight: 800; margin: 0 0 0.6rem; letter-spacing: -0.03em; }
   header p { font-size: 1.05rem; color: var(--muted); margin: 0; }
   main { max-width: 42rem; margin: 0 auto; padding: 0 1.5rem 6rem; }
-  main h2 { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.01em; margin: 2.2rem 0 0.7rem; }
-  main p, main li { font-size: 0.97rem; line-height: 1.6; color: var(--text); }
+  main h2 { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.01em; margin: 2.3rem 0 0.7rem; }
+  main h2 .num { color: var(--accent-dark); margin-right: 0.4rem; }
+  main p, main li, main td, main th { font-size: 0.95rem; line-height: 1.6; color: var(--text); }
   main ul { padding-left: 1.3rem; }
   main li { margin-bottom: 0.5rem; }
   main a { color: var(--accent-dark); font-weight: 600; }
+  .intro { font-size: 1rem; color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; font-size: 0.88rem; }
+  caption { text-align: left; font-size: 0.8rem; color: var(--muted); margin-bottom: 0.4rem; }
+  th, td { text-align: left; padding: 0.55rem 0.6rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--muted); font-weight: 700; }
+  .table-wrap { overflow-x: auto; }
   .updated { font-size: 0.82rem; color: var(--muted); margin-top: 2.5rem; }
 </style>
 </head>
@@ -35,36 +42,47 @@
   </nav>
   <header>
     <h1>Privacy Policy</h1>
-    <p>For the Elevation iOS and iPadOS app, published by OneLocal.</p>
+    <p>For the Elevation iOS and iPadOS app, published by OneLocal. This policy is written to meet GDPR's Article 13/14 disclosure requirements.</p>
   </header>
   <main>
-    <p>Elevation has no account, no sign-in, and no server of its own. Everything you draw, scan or write stays on your device unless you personally choose to export or share it. This page explains exactly what the app touches and why.</p>
+    <p class="intro">Elevation has no account, no sign-in, and no server of its own. Everything you draw, scan or write stays on your device unless you personally choose to export or share it.</p>
 
-    <h2>What the app uses, and why</h2>
-    <ul>
-      <li><strong>Your plans, photos and checklist.</strong> Every floor plan, room, pipe, task and attached photo is stored locally in the app's own on-device database. Nothing is uploaded automatically, and Elevation does not sync to iCloud or any server.</li>
-      <li><strong>Camera.</strong> Used to scan a room with LiDAR to draw that floor's walls, and to photograph pipes, meters or finished work to attach to your plan and checklist. Photos never leave your device.</li>
-      <li><strong>Photo library (optional).</strong> You can attach an existing photo from your library to a task instead of taking a new one. The app only sees the photo you pick, through Apple's standard picker.</li>
-      <li><strong>Exports you ask for.</strong> The PDF, SketchUp and 3D-scan export buttons generate a file on your device and hand it to iOS's own share sheet. Nothing is sent anywhere unless you choose a destination yourself.</li>
-      <li><strong>Language setting.</strong> Your English/French choice is saved locally with no connection to any account.</li>
-    </ul>
+    <h2><span class="num">1.</span>Who is responsible for your data</h2>
+    <p>The data controller is OneLocal (Thomas Chézières), an individual developer based in France. For anything in this policy: <a href="mailto:support.elevation@onelocal.dev">support.elevation@onelocal.dev</a>. No separate Data Protection Officer is appointed — OneLocal does not carry out large-scale or systematic processing of the kind that requires one, and in practice processes none of your personal data at all (see below).</p>
 
-    <h2>What OneLocal can see</h2>
-    <p>Nothing. Elevation has no backend, no analytics, and no crash-reporting or advertising SDKs. There is no way for us to see your plans, your photos, or how you use the app.</p>
+    <h2><span class="num">2.</span>Data Elevation processes, and why</h2>
+    <div class="table-wrap">
+    <table>
+      <caption>Processing activities carried out by the Elevation app itself</caption>
+      <tr><th>Data</th><th>Purpose</th><th>Legal basis (Art. 6 GDPR)</th><th>Who sees it</th><th>Retention</th></tr>
+      <tr><td>Floor plans, rooms, tasks, photos you add</td><td>Core function of the app</td><td>Performance of the service you open the app to use (Art. 6(1)(b), by analogy — no account/contract exists, but this is the equivalent basis for pure on-device app state)</td><td>Only you, on your device</td><td>Until you delete it yourself</td></tr>
+      <tr><td>Camera images</td><td>LiDAR room scanning; photos of pipes, meters or finished work</td><td>Consent (granted through the iOS camera permission prompt)</td><td>Only you, on your device</td><td>Until you delete it yourself</td></tr>
+      <tr><td>A photo you pick from your library</td><td>Attaching it to a task</td><td>Consent (you actively choose the photo via Apple's picker)</td><td>Only you, on your device</td><td>Until you delete it yourself</td></tr>
+      <tr><td>Exported PDF / SketchUp / 3D-scan files</td><td>Letting you share or save your plan outside the app</td><td>Consent (you trigger the export and choose where it goes)</td><td>Whoever you choose to send it to — not OneLocal</td><td>Controlled entirely by you once exported</td></tr>
+      <tr><td>Language preference (English/French)</td><td>Remembering your chosen app language</td><td>Legitimate interest (Art. 6(1)(f)) — basic app usability, minimal and expected</td><td>Only you, on your device</td><td>Until you delete the app</td></tr>
+    </table>
+    </div>
+    <p>None of this is ever transmitted to OneLocal. There is no backend server, no analytics SDK, and no crash-reporting or advertising SDK in Elevation — OneLocal has no technical means of seeing your plans, your photos, or how you use the app.</p>
 
-    <h2>Third parties</h2>
-    <p>Elevation does not use any third-party services, trackers or ad networks.</p>
+    <h2><span class="num">3.</span>Data Elevation does not collect</h2>
+    <p>No account, no email address, no advertising identifier, no location, no contacts, no precise usage analytics. Elevation does not use cookies or any similar tracking technology, and does not perform any automated decision-making or profiling that produces legal or similarly significant effects on you (Art. 22).</p>
 
-    <h2>Children's privacy</h2>
-    <p>Elevation is not directed at children and collects no data from anyone, regardless of age.</p>
+    <h2><span class="num">4.</span>International data transfers</h2>
+    <p>Because nothing leaves your device, OneLocal does not transfer any of your data internationally. Apple's iOS share sheet (used only for exports you explicitly trigger) is governed by Apple's own privacy policy and data-transfer safeguards, not OneLocal's.</p>
 
-    <h2>Your choices</h2>
-    <p>Everything lives in the app's own storage, so deleting a project, or deleting the app, deletes that data. There is no server copy to separately request or delete.</p>
+    <h2><span class="num">5.</span>Your rights</h2>
+    <p>Under GDPR you have the right to access, rectify, erase, restrict or object to processing of your personal data, and to data portability. In Elevation's case, these are all already fully in your own hands: delete a project, a photo or the app itself, and that data is gone — there is no separate copy held by OneLocal to action a request against. You can still email <a href="mailto:support.elevation@onelocal.dev">support.elevation@onelocal.dev</a> with any privacy question, and you have the right to lodge a complaint with your national supervisory authority — in France, the <a href="https://www.cnil.fr/">CNIL</a>.</p>
 
-    <h2>Changes to this policy</h2>
-    <p>If what the app does ever changes, this page will be updated to match before that change ships.</p>
+    <h2><span class="num">6.</span>Children's privacy</h2>
+    <p>Elevation is not directed at children and knowingly collects no data from anyone, regardless of age.</p>
 
-    <h2>Contact</h2>
+    <h2><span class="num">7.</span>Data breaches</h2>
+    <p>Since Elevation holds no personal data outside your own device, there is no OneLocal-held dataset that could be breached. If that ever changes, this section will be updated to describe how you'd be notified.</p>
+
+    <h2><span class="num">8.</span>Changes to this policy</h2>
+    <p>If what the app does ever changes, this page will be updated to match before that change ships, with the date below revised accordingly.</p>
+
+    <h2><span class="num">9.</span>Contact</h2>
     <p>Questions about this policy: <a href="mailto:support.elevation@onelocal.dev">support.elevation@onelocal.dev</a></p>
 
     <p class="updated">Last updated November 16, 2026.</p>
