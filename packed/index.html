@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>Packed — The trip checklist that knows where things are</title>
+<meta name="description" content="Packed is a trip bag checklist for iPhone and Apple Watch. Photograph each item as proof it's packed, ask out loud where something is, and never leave your passport behind. No account, no subscription, nothing leaves your device.">
+<link rel="canonical" href="https://onelocal.dev/packed/">
+<meta name="robots" content="index, follow">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="OneLocal">
+<meta property="og:title" content="Packed — The trip checklist that knows where things are">
+<meta property="og:description" content="A trip bag checklist for iPhone and Apple Watch, with a packed-proof photo per item and a spoken \"where is my passport?\" assistant.">
+<meta property="og:url" content="https://onelocal.dev/packed/">
+<meta property="og:image" content="https://onelocal.dev/packed/images/og-image.png">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Packed — The trip checklist that knows where things are">
+<meta name="twitter:description" content="A trip bag checklist for iPhone and Apple Watch, with a packed-proof photo per item and a spoken \"where is my passport?\" assistant.">
+<meta name="twitter:image" content="https://onelocal.dev/packed/images/og-image.png">
+
+<link rel="apple-touch-icon" href="images/logo.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Packed",
+  "applicationCategory": "TravelApplication",
+  "operatingSystem": "iOS, watchOS",
+  "description": "A trip bag checklist with a packed-proof photo per item and a spoken assistant that finds your things.",
+  "url": "https://onelocal.dev/packed/",
+  "image": "https://onelocal.dev/packed/images/og-image.png",
+  "publisher": {
+    "@type": "Organization",
+    "name": "OneLocal",
+    "url": "https://onelocal.dev/",
+    "logo": "https://onelocal.dev/assets/onelocal-mark-512.png"
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+  nav { max-width: 48rem; margin: 0 auto; }
+  .hero {
+    position: relative;
+    padding: 2.5rem 1.5rem 3.5rem;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -14rem;
+    left: 50%;
+    width: 40rem;
+    height: 26rem;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse at center, color-mix(in srgb, var(--accent) 18%, transparent), transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .hero h1 { font-size: 2.6rem; font-weight: 800; margin: 0 0 0.7rem; letter-spacing: -0.03em; }
+  .hero p { font-size: 1.15rem; color: var(--muted); max-width: 32rem; margin: 0 auto; }
+  main { max-width: 48rem; margin: 0 auto; padding: 0 1.5rem 6rem; }
+  .features { display: grid; gap: 1.1rem; grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .features { grid-template-columns: 1fr 1fr; } }
+  .feature {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.6rem;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s ease, transform 0.2s cubic-bezier(.16,1,.3,1);
+  }
+  .feature:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .feature h2 { margin: 0 0 0.4rem; font-size: 1.08rem; font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
+  .feature p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+  .badge-row { text-align: center; margin: 3rem 0 0; }
+  .coming-soon {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent-dark);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.55rem 1.3rem;
+    border-radius: 999px;
+  }
+  .beta-button {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.85rem 1.9rem;
+    border-radius: 999px;
+    margin-top: 1.1rem;
+    box-shadow: var(--shadow-md);
+    transition: background 0.18s ease, transform 0.18s cubic-bezier(.16,1,.3,1), box-shadow 0.18s ease;
+  }
+  .beta-button:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  .links-row { text-align: center; margin-top: 1rem; font-size: 0.88rem; }
+  .links-row a { color: var(--muted); text-decoration: underline; margin: 0 0.5rem; }
+  .logo { width: 88px; height: 88px; border-radius: 20px; box-shadow: var(--shadow-lg); margin-bottom: 1.4rem; }
+</style>
+<link rel="icon" type="image/png" href="images/logo.png">
+</head>
+<body>
+  <nav>
+    <a href="/"><img class="brand-mark" src="/assets/onelocal-mark.svg" alt=""> OneLocal</a>
+    <a href="/packed/privacy/">Privacy</a>
+    <a href="/packed/support/">Support</a>
+  </nav>
+  <header class="hero">
+    <img class="logo" src="images/logo.png" alt="Packed app icon">
+    <h1>Packed</h1>
+    <p>A trip bag checklist for iPhone and Apple Watch, so you stop forgetting things — and stop wondering where you put them.</p>
+  </header>
+  <main>
+    <div class="features">
+      <div class="feature">
+        <h2>Pack with proof</h2>
+        <p>Take a photo of each item as you pack it. A trip isn't "done" until everything on the list has its photo.</p>
+      </div>
+      <div class="feature">
+        <h2>"Where is my passport?"</h2>
+        <p>Ask out loud and get an answer — your question is transcribed and matched against your own packed items, entirely on your iPhone.</p>
+      </div>
+      <div class="feature">
+        <h2>On your wrist too</h2>
+        <p>Check items off and glance at your trip from the Apple Watch app, kept in sync with your iPhone.</p>
+      </div>
+      <div class="feature">
+        <h2>Repack in one tap</h2>
+        <p>Coming home, going somewhere else — mark a leg as packed and start the next one without rebuilding the list from scratch.</p>
+      </div>
+    </div>
+    <div class="badge-row">
+      <span class="coming-soon">Coming soon to the App Store</span>
+      <br>
+      <a class="beta-button" href="mailto:support.packed@onelocal.dev?subject=Beta%20tester%20request">Become a beta tester</a>
+      <div class="links-row">
+        <a href="/packed/privacy/">Privacy Policy</a>&middot;<a href="/packed/support/">Support</a>
+      </div>
+    </div>
+  </main>
+  <footer>
+    &copy; 2026 OneLocal
+  </footer>
+</body>
+</html>

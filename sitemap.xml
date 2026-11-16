@@ -21,12 +21,37 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://onelocal.dev/garden-tracker/support/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://onelocal.dev/elevation/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://onelocal.dev/elevation/privacy/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://onelocal.dev/elevation/support/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://onelocal.dev/packed/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://onelocal.dev/packed/privacy/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://onelocal.dev/packed/support/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
