@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>Changelog — Packed</title>
+<meta name="description" content="How Packed got built, version by version — including the bugs that only showed up on a real iPhone.">
+<link rel="canonical" href="https://onelocal.dev/packed/changelog/">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/png" href="../images/logo.png">
+<link rel="apple-touch-icon" href="../images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+  nav {
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+  header {
+    padding: 1.5rem 1.5rem 3rem;
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+  header h1 {
+    font-size: 2.1rem;
+    font-weight: 800;
+    margin: 0 0 0.6rem;
+    letter-spacing: -0.03em;
+  }
+  header p {
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin: 0;
+  }
+  main {
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 6rem;
+  }
+  .entry {
+    position: relative;
+    padding: 0 0 2.5rem 1.7rem;
+    border-left: 2px solid var(--border);
+  }
+  .entry:last-child {
+    border-left: 2px solid transparent;
+    padding-bottom: 0;
+  }
+  .entry::before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 0.3rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-light);
+  }
+  .entry .date {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-dark);
+  }
+  .entry h2 {
+    margin: 0.35rem 0 0.45rem;
+    font-size: 1.22rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .entry .version {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--muted);
+    background: var(--accent-light);
+    border-radius: 999px;
+    padding: 0.18rem 0.65rem;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+  .entry p {
+    margin: 0.5rem 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <a href="/"><img class="brand-mark" src="/assets/onelocal-mark.svg" alt=""> OneLocal</a>
+    <a href="/packed/">Packed</a>
+  </nav>
+  <header>
+    <h1>Changelog</h1>
+    <p>What actually happened, version by version — including the parts that didn't work the first time.</p>
+  </header>
+  <main>
+
+    <div class="entry">
+      <div class="date">November 16, 2026</div>
+      <h2>Ready for the App Store</h2>
+      <p>Added the privacy manifest Apple's build validation now requires to all four of Packed's targets — the app and widget both read/write local settings and share data with the watch app through an App Group, and the watch app and its widget only ever touch that shared App Group storage, so each got the reason codes that actually match what it does. Export compliance was already declared from the first build.</p>
+    </div>
+
+    <div class="entry">
+      <div class="date">October 25, 2026</div>
+      <h2>Fixing the camera, and testing the library picker properly<span class="version">build 7</span></h2>
+      <p>The packed-proof camera showed a black preview on a real device — the fix was presenting <code>UIImagePickerController</code> modally from the top view controller after an explicit permission check, instead of embedding it in a full-screen cover. Also added a UI test that actually picks a photo from the library as proof, rather than only testing the camera path.</p>
+    </div>
+
+    <div class="entry">
+      <div class="date">October 25, 2026</div>
+      <h2>Speaking even on silent mode<span class="version">build 6</span></h2>
+      <p>The assistant's voice was muted whenever the phone's silent switch was on, since the default audio session doesn't override it. Fixed by setting the session to playback/spoken-audio/duck-others unless it's already in record mode, and added a "Last spoke with" line in Settings so the actual voice used can be confirmed.</p>
+    </div>
+
+    <div class="entry">
+      <div class="date">October 25, 2026</div>
+      <h2>Picking a better voice<span class="version">build 5</span></h2>
+      <p>Voice selection now ranks installed voices Premium, then Enhanced, then Standard, skips novelty voices, and matches the device's exact region — with a picker and a sample button in Settings, and the Watch using whichever is best installed there.</p>
+    </div>
+
+    <div class="entry">
+      <div class="date">October 25, 2026</div>
+      <h2>Actually declaring background audio<span class="version">build 4</span></h2>
+      <p>Starting a Live Activity to listen for a spoken question kept failing with a background-audio session error, even after background modes were added to the generated Info.plist settings. The real cause: <code>INFOPLIST_KEY_UIBackgroundModes</code> isn't a supported generated-Info.plist key and gets silently dropped — background modes have to go in a real, partial <code>Info.plist</code> merged in at build time. Verified this time by checking the archived Info.plist directly, not just assuming the setting took.</p>
+    </div>
+
+    <div class="entry">
+      <div class="date">October 25, 2026</div>
+      <h2>Ask out loud, without opening the app<span class="version">builds 2–3</span></h2>
+      <p>Added asking a question from the widget, Control Center, or the Action button, backed by a Live Activity shown while Packed is listening. The first attempt did nothing visible on a real iPhone — no Live Activity, no mic indicator. The fix was conforming to <code>LiveActivityIntent</code> specifically (a plain <code>AudioRecordingIntent</code> turned out not to be enough to start a Live Activity from the background) and no longer silently swallowing the errors that were hiding the real failure, plus a step-by-step diagnostics trail in Settings to see exactly where a future attempt stalls.</p>
+    </div>
+
+    <div class="entry">
+      <div class="date">October 25, 2026</div>
+      <h2>Packed begins</h2>
+      <p>First build: an iPhone and Apple Watch trip bag checklist, with a photo as proof each item is packed, a spoken "where is my passport?" assistant that answers from your own stored items, iCloud sync between your own devices, Siri phrases, a widget, French localization, and the app icon — all in one initial build.</p>
+    </div>
+
+  </main>
+  <footer>
+    &copy; 2026 OneLocal
+  </footer>
+</body>
+</html>

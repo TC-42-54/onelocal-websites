@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>Changelog — Elevation</title>
+<meta name="description" content="How Elevation got built, version by version — including the LiDAR scanning work and the bugs that took more than one pass to actually fix.">
+<link rel="canonical" href="https://onelocal.dev/elevation/changelog/">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/png" href="../images/logo.png">
+<link rel="apple-touch-icon" href="../images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+  nav {
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+  header {
+    padding: 1.5rem 1.5rem 3rem;
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+  header h1 {
+    font-size: 2.1rem;
+    font-weight: 800;
+    margin: 0 0 0.6rem;
+    letter-spacing: -0.03em;
+  }
+  header p {
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin: 0;
+  }
+  main {
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 6rem;
+  }
+  .entry {
+    position: relative;
+    padding: 0 0 2.5rem 1.7rem;
+    border-left: 2px solid var(--border);
+  }
+  .entry:last-child {
+    border-left: 2px solid transparent;
+    padding-bottom: 0;
+  }
+  .entry::before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 0.3rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-light);
+  }
+  .entry .date {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-dark);
+  }
+  .entry h2 {
+    margin: 0.35rem 0 0.45rem;
+    font-size: 1.22rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .entry .version {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--muted);
+    background: var(--accent-light);
+    border-radius: 999px;
+    padding: 0.18rem 0.65rem;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+  .entry p {
+    margin: 0.5rem 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <a href="/"><img class="brand-mark" src="/assets/onelocal-mark.svg" alt=""> OneLocal</a>
+    <a href="/elevation/">Elevation</a>
+  </nav>
+  <header>
+    <h1>Changelog</h1>
+    <p>What actually happened, version by version — including the parts that didn't work the first time.</p>
+  </header>
+  <main>
+
+    <div class="entry">
+      <div class="date">November 16, 2026</div>
+      <h2>A new name, and ready for the App Store<span class="version">1.0 build 1</span></h2>
+      <p>Renamed from House Plan to Elevation (the bundle ID, display name, Xcode project, GitHub repo and local folder all moved together) after "House Planner"-style names turned out to be crowded on the App Store. Added the privacy manifest Apple's build validation now requires (the app reads and writes its own settings via <code>UserDefaults</code>, which needs a declared reason) and declared export compliance so App Store Connect stops asking the encryption question on every upload. First TestFlight build uploaded the same day.</p>
+    </div>
+
+    <div class="entry">
+      <div class="date">October 4, 2026</div>
+      <h2>Straightening walls now actually finishes in one tap</h2>
+      <p>The "Straighten walls" command rotated each wall to the nearest right angle one at a time, then re-welded the corner it had just pulled apart from its neighbour — but that reweld could nudge the neighbour's angle back out of true, even if the neighbour had already been fixed earlier in the same pass. The fix wasn't obvious from a synthetic test case; a few attempts at a minimal reproduction each landed on a different outcome. What actually held up against a real scan was looping the whole per-wall rotate-and-reweld pass until nothing changes, instead of leaving the user to tap the button two or three times to fully settle a floor.</p>
+    </div>
+
+    <div class="entry">
+      <div class="date">October 4, 2026</div>
+      <h2>Viewing a floor's raw 3D scan without leaving the app</h2>
+      <p>A scanned floor's raw mesh — the actual LiDAR geometry, not the cleaned-up walls Elevation draws from it — can now be exported as a USDZ model and viewed right in the app through Apple's QuickLook, next to "Redo scan merge…" in the floor's menu. Tested against real scans of the user's own house, pulled from the app's SwiftData storage on a real iPhone.</p>
+    </div>
+
+    <div class="entry">
+      <div class="date">October 2, 2026</div>
+      <h2>Editing a wall after it's drawn, not just while drawing it</h2>
+      <p>A wall's angle can now be dragged to any value after the fact, corners round instead of mitering sharply, and a wall can snap straight or perpendicular to a hand-picked reference wall — useful for squaring up a hand-drawn room without redrawing it. Dragging a wall's end now also snaps its hinge onto a neighbouring wall's own line, not just the grid.</p>
+    </div>
+
+    <div class="entry">
+      <div class="date">October 2, 2026</div>
+      <h2>A real page per room in the PDF export</h2>
+      <p>The PDF export gained a zoomed-in page for each room, isolated to just that room and filling the page, with its own sidebar and edge measurements — rather than the whole-house PDF being the only option.</p>
+    </div>
+
+    <div class="entry">
+      <div class="date">October 1, 2026</div>
+      <h2>Cleaning up what a LiDAR scan actually produces</h2>
+      <p>Real scans needed more correction than the first pass assumed: duplicate walls and doors were deduped by actual geometry instead of just RoomPlan's own id, overlapping (not just exactly duplicate) walls now collapse, the weld tolerance was raised because real corner gaps run wider than the original test data suggested, and an unclosed room is flagged live during scanning instead of only after the whole floor merges. Two end-to-end walls can also be merged into one straight wall, and a wall is no longer refused a merge just because a third wall branches off its corner.</p>
+    </div>
+
+    <div class="entry">
+      <div class="date">September 30 – October 1, 2026</div>
+      <h2>LiDAR room scanning and a SketchUp export</h2>
+      <p>Scan a room with LiDAR and have it turned into a normal, editable floor plan — RoomPlan's raw faces get squared up, paired into centreline walls, welded at corners and T-junctions, and turned into rooms with a ceiling height. A freshly scanned floor lines up against the floor below it automatically. Separately, the whole house can now be exported as a COLLADA <code>.dae</code> file for SketchUp, since SketchUp on iOS can only import that format, not its own <code>.skp</code>.</p>
+    </div>
+
+    <div class="entry">
+      <div class="date">September 21, 2026</div>
+      <h2>Elevation begins</h2>
+      <p>First build, as House Plan: an iPhone and iPad app to draw to-scale floor plans, mark where utilities run, and keep a checklist of the work to do — with the app icon, a 20-step guided tour, and French localization in place from day one.</p>
+    </div>
+
+  </main>
+  <footer>
+    &copy; 2026 OneLocal
+  </footer>
+</body>
+</html>

@@ -31,6 +31,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://onelocal.dev/elevation/changelog/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://onelocal.dev/elevation/privacy/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -44,6 +49,11 @@
     <loc>https://onelocal.dev/packed/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://onelocal.dev/packed/changelog/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://onelocal.dev/packed/privacy/</loc>
